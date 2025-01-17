@@ -1,0 +1,1 @@
+# Farm-GPT-AI-Powered-Fertilizer-Recommendation-System
