@@ -101,7 +101,7 @@ def predict():
         # Process input for fertilizer prediction
         num_features = np.array([[data['temperature'], data['nitrogen'], 
                                  data['phosphorus'], data['potassium']]])
-        num_features_df = pd.DataFrame(num_features, columns=['temperature', 'nitrogen', 'phosphorus', 'potassium'])
+        num_features_df = pd.DataFrame(num_features, columns=['Temperature', 'Nitrogen', 'Phosphorus', 'Potassium'])
         scaled_num = scaler.transform(num_features_df)
         
         encoded_soil = soil_encoder.transform([data['soil']])[0]
