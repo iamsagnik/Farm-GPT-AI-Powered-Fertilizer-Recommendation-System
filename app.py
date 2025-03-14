@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 import joblib
 import os
-#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 app = Flask(__name__, static_folder='static')
 
 # Load artifacts
