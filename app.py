@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 import tensorflow as tf
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 import joblib
+import os
 
 app = Flask(__name__, static_folder='static')
 
@@ -142,4 +143,4 @@ def predict():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5022))
-    app.run(debug=True,host="0.0.0.0", port)
+    app.run(debug=True,host="0.0.0.0", port=port)
