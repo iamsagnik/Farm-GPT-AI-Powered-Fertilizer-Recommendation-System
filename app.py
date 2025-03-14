@@ -1,6 +1,7 @@
 import numpy as np
 from flask import Flask, render_template, request
 import tensorflow as tf
+import pandas as pd
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 import joblib
 import os
