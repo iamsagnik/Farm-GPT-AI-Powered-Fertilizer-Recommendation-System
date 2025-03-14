@@ -88,7 +88,7 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        print("🚀 Received prediction request!") 
+        print("🚀 Received prediction request!", flush=True) 
         # Get form data
         data = {
             'temperature': float(request.form['temperature']),
