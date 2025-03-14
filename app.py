@@ -141,4 +141,5 @@ def predict():
                               crop_types=crop_encoder.classes_)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5020)
+    port = int(os.environ.get("PORT", 5022))
+    app.run(debug=True,host="0.0.0.0", port)
