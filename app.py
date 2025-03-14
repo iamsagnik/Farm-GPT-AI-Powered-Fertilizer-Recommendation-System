@@ -122,6 +122,7 @@ def predict():
             encoded_crop         # Crop
         ]])
         print("🔮 Running model prediction...", flush=True)
+        print("Scaled numeric features:", scaled_num, flush=True)
         # Make predictions
         pred = model.predict(model_input)
         fertilizer = fertilizer_encoder.inverse_transform([np.argmax(pred)])[0]
