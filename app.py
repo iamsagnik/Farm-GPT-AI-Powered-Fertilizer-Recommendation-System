@@ -98,7 +98,7 @@ def predict():
             'potassium': float(request.form['potassium']),
             'crop': request.form['crop'].lower()
         }
-        print(f"📊 Input data: {data}")
+        print(f"📊 Input data: {data}", flush=True)
 
         # Process input for fertilizer prediction
         num_features = np.array([[data['temperature'], data['nitrogen'], 
@@ -117,11 +117,11 @@ def predict():
             scaled_num[0][3],    # Potassium
             encoded_crop         # Crop
         ]])
-        print("🔮 Running model prediction...")
+        print("🔮 Running model prediction...", flush=True)
         # Make predictions
         pred = model.predict(model_input)
         fertilizer = fertilizer_encoder.inverse_transform([np.argmax(pred)])[0]
-        print(f"✅ Prediction result: {fertilizer}")
+        print(f"✅ Prediction result: {fertilizer}", flush=True)
         
         # Generate crop recommendations
         raw_input = [
