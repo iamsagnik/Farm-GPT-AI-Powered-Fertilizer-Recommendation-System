@@ -88,6 +88,7 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
+        print("🚀 Received prediction request!") 
         # Get form data
         data = {
             'temperature': float(request.form['temperature']),
@@ -97,6 +98,7 @@ def predict():
             'potassium': float(request.form['potassium']),
             'crop': request.form['crop'].lower()
         }
+        print(f"📊 Input data: {data}")
 
         # Process input for fertilizer prediction
         num_features = np.array([[data['temperature'], data['nitrogen'], 
@@ -115,10 +117,11 @@ def predict():
             scaled_num[0][3],    # Potassium
             encoded_crop         # Crop
         ]])
-
+        print("🔮 Running model prediction...")
         # Make predictions
         pred = model.predict(model_input)
         fertilizer = fertilizer_encoder.inverse_transform([np.argmax(pred)])[0]
+        print(f"✅ Prediction result: {fertilizer}")
         
         # Generate crop recommendations
         raw_input = [
