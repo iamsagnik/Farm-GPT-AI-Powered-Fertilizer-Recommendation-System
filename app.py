@@ -18,6 +18,10 @@ fertilizer_encoder = joblib.load('model/fertilizer_encoder.pkl')
 print("Soil Types:", soil_encoder.classes_)
 print("Crop Types:", crop_encoder.classes_)
 
+dummy_input = np.zeros((1, 6))  # Adjust dimensions as needed
+_ = model.predict(dummy_input)
+print("Model warmed up!")
+
 # Crop requirements data
 crop_requirements = {
     'cotton':    {'Nitrogen': (80, 120), 'Phosphorus': (40, 60),  'Potassium': (80, 120)},
@@ -148,4 +152,4 @@ def predict():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5022))
-    app.run(debug=True,host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port)
