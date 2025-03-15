@@ -3,10 +3,13 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 import numpy as np
 from flask import Flask, render_template, request
-import tensorflow as tf
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 import joblib
+
+import tensorflow as tf
+tf.config.threading.set_intra_op_parallelism_threads(2)
+tf.config.threading.set_inter_op_parallelism_threads(2)
 
 app = Flask(__name__, static_folder='static')
 
@@ -20,7 +23,14 @@ fertilizer_encoder = joblib.load('model/fertilizer_encoder.pkl')
 print("Soil Types:", soil_encoder.classes_)
 print("Crop Types:", crop_encoder.classes_)
 
-dummy_input = np.zeros((1, 6))  # Adjust dimensions as needed
+dummy_input = np.array([[
+    0.0,  # Scaled temperature
+    0,    # Encoded soil (first class)
+    0.0,  # Scaled nitrogen
+    0.0,  # Scaled phosphorus
+    0.0,  # Scaled potassium
+    0     # Encoded crop (first class)
+]])              
 _ = model.predict(dummy_input)
 print("Model warmed up!")
 
