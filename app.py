@@ -127,6 +127,7 @@ def predict():
         print("Scaled numeric features:", scaled_num, flush=True)
         # Make predictions
         pred = model.predict(model_input)
+        print("✅ Prediction completed.", flush=True)
         fertilizer = fertilizer_encoder.inverse_transform([np.argmax(pred)])[0]
         print(f"✅ Prediction result: {fertilizer}", flush=True)
         
