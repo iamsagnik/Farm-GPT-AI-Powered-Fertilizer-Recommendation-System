@@ -14,11 +14,11 @@ tf.config.threading.set_inter_op_parallelism_threads(2)
 app = Flask(__name__, static_folder='static')
 
 # Load artifacts
-model = tf.keras.models.load_model('model/my_model.keras')
-scaler = joblib.load('model/scaler.pkl')
-soil_encoder = joblib.load('model/soil_encoder.pkl')
-crop_encoder = joblib.load('model/crop_encoder.pkl')
-fertilizer_encoder = joblib.load('model/fertilizer_encoder.pkl')
+model = tf.keras.models.load_model('model/my_model_low_build.keras')
+scaler = joblib.load('model/scaler_minor_low_build.pkl')
+soil_encoder = joblib.load('model/soil_encoder_low_build.pkl')
+crop_encoder = joblib.load('model/crop_encoder_low_build.pkl')
+fertilizer_encoder = joblib.load('model/fertilizer_encoder_low_build.pkl')
 
 print("Soil Types:", soil_encoder.classes_)
 print("Crop Types:", crop_encoder.classes_)
