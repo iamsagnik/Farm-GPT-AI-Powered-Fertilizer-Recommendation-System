@@ -77,5 +77,10 @@ The dataset includes:
    http://127.0.0.1:5000
 5. Enter the required inputs into the web form and get the recommended fertilizer.
 
+## Currently, it is being hosted here :
+  ```bash
+  https://huggingface.co/spaces/Nimbus10/FRS
+   
+
 ## 🌟 Web Interface
 The frontend provides an intuitive form where users enter input values. The application processes the data and displays the recommended fertilizer dynamically on the webpage.
